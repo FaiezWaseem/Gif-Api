@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Navbar</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="main-nav">
+        <input type="checkbox" id="check" />
+        <label for="check" class="menu-btn">
+          <i class="fas fa-bars"></i>
+        </label>
+        <a href="index.html" class="logo">Gif-Api</a>
+        <ul class="navlinks">
+          <li><a href="#api">Api</a></li>
+          <li><a href="#ul">Gifs</a></li>
+          <li><a href="#use">How To Use</a></li>
+          <li><a href="#" class="contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="main">
+        <div class="left">
+            <h2>Download Latest <span>Gifs</span></h2>
+            <br>
+            <h2> Or Use<span>Api</span></h2>
+        </div>
+        <div class="right">
+            <img src="./70007-web-development-design.gif" alt="not found" width="400px" height="auto">
+        </div>
+    </div>
+    <center style="margin: 40px;">
+        <h1> <span>Gifs</span></h1>
+    </center>
+    <section class="gif" id="ul">
+
+    </section>
+    <section class="api" id="api">
+        <h1> <span>API</span></h1>
+        <code>
+           <h3><span>Our Api </span> </h3> <br>
+            <i class="property">https://gifs-api-default-rtdb.firebaseio.com/<span>web.json</span>?print=pretty</i> <br>
+            <i class="property">https://gifs-api-default-rtdb.firebaseio.com/<span>loading.json</span>?print=pretty</i> <br>
+            <i class="property">https://gifs-api-default-rtdb.firebaseio.com/<span>random.json</span>?print=pretty</i><br>
+            <i class="property">https://gifs-api-default-rtdb.firebaseio.com/<span>code.json</span>?print=pretty</i>
+        </code>
+        <h3><span>Api Response</span></h3>
+        <i class="property">https://gifs-api-default-rtdb.firebaseio.com/<span>code.json</span></i>
+        <pre class="code">
+            {
+                "-MgVIC52hrJS-_4Vv5dh" : {
+                  "<span>date</span>" : "7/8/2021",
+                  "<span>link</span>" : "https://drive.google.com/uc?export=download&id=1rbdZOaCv__VbSIOEUmfTPY2NzyVXHDAi",
+                  "<span>title</span>" : "Code-window"
+                },
+                "-MgVIMvrYyOisuWZkkLb" : {
+                  "date" : "7/8/2021",
+                  "link" : "https://drive.google.com/uc?export=download&id=1_kpnLITMuiXv9q0NN6AWkIssxZyOg_Ae",
+                  "title" : "code-animation"
+                },
+                "-MgVIS5py19j605nGBhx" : {
+                  "date" : "7/8/2021",
+                  "link" : "https://drive.google.com/uc?export=download&id=1m0CI0TzJ9D5J7enpR4w8hei3iPeSmw4p",
+                  "title" : "code-Time"
+                },
+                "-MgVIYkDHGElXTplWd-2" : {
+                  "date" : "7/8/2021",
+                  "link" : "https://drive.google.com/uc?export=download&id=1Cps-fwKaryh4v7lBpTcuXvzPn6pdYfo0",
+                  "title" : "coding-mobile-app"
+                }
+              }
+        </pre>
+        <h3><span>How To Use</span></h3>
+        <pre class="code" id="use">
+            <i class="property">//Create a function Like this</i>
+
+            var <span>getData</span> = function(url){
+              <span>fetch</span>(url)
+               <span>.then</span>(function(data) {
+               <span>return</span>data.json()
+                
+                })
+              <span>.then</span>(function(data) {
+                <i> //to get keys of object</i>  
+
+                var obkeys = Object.keys(data)
+                    for (const [key, value] of Object.entries(data)) {
+
+                        <i>//Get the gif link  , title or upload date like this </i>
+                        <i>//Utilize according to your need</i>
+
+                    console.log(value.link , value.title , value.date)
+                      }
+                    })
+               <span>.catch</span> (function(error) {
+                   <i>//Catch Error</i>
+                alert(error)
+                });
+            }
+            <i>//Pass the api to the function</i>
+
+            <span>getData("<i>https://gifs-api-default-rtdb.firebaseio.com/code.json</i>")</span>
+
+         <i> <button id="copy">Copy</button></i>  
+        </pre>
+    </section>
+    <a class="top-link hide" href="" id="js-top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
+      </a>
+    <script src="./index.js"></script>
+  </body>
+</html>
